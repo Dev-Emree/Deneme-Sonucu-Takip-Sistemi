@@ -31,11 +31,11 @@ The purpose of the website is to help students preparing for the Higher Educatio
 - `routes/` -  Implements the routers using the MVC structure to facilitate their management and improve the development process.
 
 > # Preview
-You can view the frontend code <a href="deneme-sonucu-takip-sistemi.mevcollegemun.org">here</a>.
+You can view the frontend code <a href="https://deneme-sonucu-takip-sistemi.mevcollegemun.org">here</a>.
 
 To test the system, there is an account with the username: Test and password: test. You can either register a new account or try the test account.
 
-You can check an example exam result sharing link <a href="http://deneme-sonucu-takip-sistemi.mevcollegemun.org/detay/tyt/64a1a64bea8f39449c861c3d">here</a>.
+You can check an example exam result sharing link <a href="https://deneme-sonucu-takip-sistemi.mevcollegemun.org/detay/tyt/64a1a64bea8f39449c861c3d">here</a>.
 
 # Authentication
 [Passport.js](https://www.passportjs.org/) is used for user authentication. Although the package is extensive, only login via session is allowed due to the user base. Login information is saved as a session using the passport-local package.
