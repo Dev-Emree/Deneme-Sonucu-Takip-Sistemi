@@ -5,10 +5,10 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dev-Emree/MACMUN-The-Sequel-Web-Site.git"
+    "url": "https://github.com/Dev-Emree/Deneme-Sonucu-Takip-Sistemi.git"
   },
   "bugs": {
-    "url": "https://github.com/Dev-Emree/MACMUN-The-Sequel-Web-Site/issues"
+    "url": "https://github.com/Dev-Emree/Deneme-Sonucu-Takip-Sistemi/issues"
   },
   "scripts": {
     "start": "node server.js",
