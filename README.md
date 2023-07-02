@@ -31,11 +31,11 @@ Yükseköğretim Kurumları Sınavına(YKS) hazırlanan öğrencilerin girmiş o
 - `routes/` - Yönlendiricileri daha kolay yönetebilmek ve geliştirme sürecini daha sağlıklı hale getirmek için MVC yapısı kullanıldı.
 
 > # Ön İzleme
-Ön uç kodlarını <a href="deneme-sonucu-takip-sistemi.mevcollegemun.org">buradan</a> görebilirsiniz.
+Ön uç kodlarını <a href="https://deneme-sonucu-takip-sistemi.mevcollegemun.org">buradan</a> görebilirsiniz.
 
 Sistemi test etmek için kullanıcı adı:`Test` şifre:`test` olan hesap açılmıştır kayıt olabilir ya da test hesabını deneyebilirsiniz.
 
-<a href="http://deneme-sonucu-takip-sistemi.mevcollegemun.org/detay/tyt/64a1a64bea8f39449c861c3d">Buradan</a> örnek sınav sonucu paylaşım linkine bakabilirsiniz.
+<a href="https://deneme-sonucu-takip-sistemi.mevcollegemun.org/detay/tyt/64a1a64bea8f39449c861c3d">Buradan</a> örnek sınav sonucu paylaşım linkine bakabilirsiniz.
 
 # Kimlik Doğrulama
 Kullanıcıların kimlik doğrulamaları için [passport.js](https://www.passportjs.org/) kullanılıyor. Paket çok geniş olmasına rağmen kullanıcı kitle gereği sadece session üzerinden giriş yapılabiliyor. `passport-local` paketi ile giriş bilgileri session olarak kaydediliyor.
