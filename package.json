@@ -1,0 +1,39 @@
+{
+  "name": "deneme-sonucu-takip-sistemi",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dev-Emree/MACMUN-The-Sequel-Web-Site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dev-Emree/MACMUN-The-Sequel-Web-Site/issues"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Emre Ekiz",
+  "license": "MIT License",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "@6.7.2",
+    "mongoose-unique-validator": "^3.1.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "errorhandler": "^1.5.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,1 @@
+let tl_links=gsap.timeline({scrollTrigger:{trigger:"body",start:"5%",end:"17.5%",scrub:1}});tl_links.fromTo(".navlinks>rotater",{"backdrop-filter":"blur(0px)","background-color":"rgba(153,153,153,0)",color:"#fff"},{"backdrop-filter":"blur(5px)","background-color":"rgba(153,153,153,.35)",color:"#000"});

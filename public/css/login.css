@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body {
+    background-color: #041128;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    min-height:720px;
+}
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    display: none
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    background-color: #FFF;
+    margin: 0;
+    padding: 2.25em;
+    box-sizing: border-box;
+    border: solid 1px #DDD;
+    border-radius: 0.5em;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px 0px 25px 10px white;
+}
+
+form .svgContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1em;
+    border-radius: 50%;
+    background: none;
+    border: solid 2.5px #3A5E77;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+form .svgContainer div {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 100%;
+}
+
+form .svgContainer .mySVG {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+form .inputGroup {
+    margin: 0 0 1em;
+    padding: 0;
+    position: relative;
+}
+
+form .inputGroup:last-of-type {
+    margin-bottom: 0;
+}
+
+form label {
+    margin: 0 0 12px;
+    display: block;
+    font-size: 1.25em;
+    color: #217093;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+form .error1,
+form .error2{
+    color: transparent;
+    font-family: inherit;
+    margin-top: 3px;
+    margin-left: 5px;
+    user-select: none;
+}
+
+form input[type=text],
+form input[type=password] {
+    display: block;
+    margin: 0;
+    padding: 0 1em 0;
+    background-color: #f3fafd;
+    border: solid 2px #217093;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 65px;
+    font-size: 1.55em;
+    color: #353538;
+    font-weight: 600;
+    font-family: inherit;
+    transition: box-shadow 0.2s linear, border-color 0.25s ease-out;
+}
+
+form input[type=text]:focus,
+form input[type=password]:focus {
+    outline: none;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border: solid 2px #4eb8dd;
+}
+
+form .inputGroup3{
+    background-color: #4eb8dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form button {
+    display: block;
+    margin: 0;
+    padding: 0.65em 1em 1em;
+    background-color: #4eb8dd;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: none;
+    width: 100%;
+    height: 65px;
+    font-size: 1.55em;
+    color: #FFF;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background-color 0.2s ease-out;
+    cursor: pointer;
+}
+
+form button:hover,
+form button:active {
+    background-color: #217093;
+}
+
+nav.nav-open{
+    background-color: rgba(4, 17, 40, .9) !important;
+}
+
+a.link{
+    color: white !important;
+}
+
+div.line{
+    background: white !important;
+}
+
+.loading,
+.loaded{
+    width: 60px;
+    height: 60px;
+}
+
+@media only screen and (max-width:720px) {
+    body{
+        padding-bottom: 17.5vh;
+    }
+    form{
+        background-color: transparent;
+        border:none;
+        box-shadow: none;
+    }
+    h3{
+        font-size: 1.1em;
+    }
+}
+
+.errAnimation{
+    animation: errorInput .5s ease;
+    border: solid 3px red !important;
+}
+
+@keyframes errorInput {
+    0%{
+        transform: translate(10px);
+    }
+    50%{
+        transform: translate(-10px);
+    }
+    100%{
+        transform: translate(0px);
+    }
+}
+
+a.register{
+    position: absolute;
+    color:#fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    bottom: 2vh;
+}
+
+a.register>h3{
+    font-weight: 100;
+}

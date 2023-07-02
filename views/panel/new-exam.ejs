@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeni Sınav Kaydet</title>
+    <link rel="stylesheet" href="/public/css/new-exam.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+
+<body>
+    <%- include('../includes/menu')  %> 
+    <main style="transform:translate(-20vw);">
+        <section class="tyt">
+            <h1 class="title">Temel Yeterlilik Testi</h1>
+            <span style="justify-content:start;">
+                <h2 class="first-row">Dersler</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Doğru</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Yanlış</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Net</h2>
+            </span>
+            <span style="justify-content:start;">
+                <h2>Türkçe</h2>
+            </span>
+            <span><input id="number" class="turkce dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="turkce yanlis _40" type="number" value="0"></span>
+            <span class="net net-turkce">0</span>
+            <span style="justify-content:start;">
+                <h2>Sosyal Bilimler</h2>
+            </span>
+            <span><input id="number" class="sosyal dogru _20" type="number" value="0"></span>
+            <span><input id="number" class="sosyal yanlis _20" type="number" value="0"></span>
+            <span class="net net-sos">0</span>
+            <span style="justify-content:start;">
+                <h2>Matematik</h2>
+            </span>
+            <span><input id="number" class="matematik dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="matematik yanlis _40" type="number" value="0"></span>
+            <span class="net net-mat">0</span>
+            <span style="justify-content:start;">
+                <h2>Fen Bilimleri</h2>
+            </span>
+            <span><input id="number" class="fen dogru _20" type="number" value="0"></span>
+            <span><input id="number" class="fen yanlis _20" type="number" value="0"></span>
+            <span class="net net-fen">0</span>
+            <span style="justify-content:start;">
+                <h2>Toplam</h2>
+            </span>
+            <span><h3 class="tyt-total dogru">0</h3></span>
+            <span><h3 class="tyt-total yanlis">0</h3></span>
+            <span><h3 class="tyt-total net">0</h3></span>
+            <span class="exam-name"><input maxlength="16" type="text" class="tyt-name" placeholder="Deneme Sınavı İsmi"></span>
+            <div class="buttons">
+                <span class="add calc-tyt">
+                    <h2>Hesapla</h2>
+                </span>
+                <div class="add submit-tyt">
+                    <h2 class="kaydet">Kaydet</h2>
+                </div>
+            </div>
+        </section>
+        <!--            AYT             -->
+        <section class="ayt">
+            <h1 class="title">Alan Yeterlilik Testi</h1>
+            <span style="justify-content:start;">
+                <h2 class="first-row">Dersler</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Doğru</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Yanlış</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Net</h2>
+            </span>
+            <span style="justify-content:start;">
+                <h2>TDE ve<br>Sosyal-1</h2>
+            </span>
+            <span><input id="number" class="turkce2 dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="turkce2 yanlis _40" type="number" value="0"></span>
+            <span class="net net-turkce2">0</span>
+            <span style="justify-content:start;">
+                <h2>Sosyal-2</h2>
+            </span>
+            <span><input id="number" class="sosyal2 dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="sosyal2 yanlis _40" type="number" value="0"></span>
+            <span class="net net-sos2">0</span>
+            <span style="justify-content:start;">
+                <h2>Matematik</h2>
+            </span>
+            <span><input id="number" class="matematik2 dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="matematik2 yanlis _40" type="number" value="0"></span>
+            <span class="net net-mat2">0</span>
+            <span style="justify-content:start;">
+                <h2>Fen Bilimleri</h2>
+            </span>
+            <span><input id="number" class="fen2 dogru _40" type="number" value="0"></span>
+            <span><input id="number" class="fen2 yanlis _40" type="number" value="0"></span>
+            <span class="net net-fen2">0</span>
+            <span style="justify-content:start;">
+                <h2>MF Toplam</h2>
+            </span>
+            <span><h3 class="ayt-mf-total dogru">0</h3></span>
+            <span><h3 class="ayt-mf-total yanlis">0</h3></span>
+            <span><h3 class="ayt-mf-total net">0</h3></span>
+            <span style="justify-content:start;">
+                <h2>TM Toplam</h2>
+            </span>
+            <span><h3 class="ayt-tm-total dogru">0</h3></span>
+            <span><h3 class="ayt-tm-total yanlis">0</h3></span>
+            <span><h3 class="ayt-tm-total net">0</h3></span>
+            <span style="justify-content:start;">
+                <h2>TS Toplam</h2>
+            </span>
+            <span><h3 class="ayt-ts-total dogru">0</h3></span>
+            <span><h3 class="ayt-ts-total yanlis">0</h3></span>
+            <span><h3 class="ayt-ts-total net">0</h3></span>
+            <span class="exam-name"><input maxlength="16" type="text" class="ayt-name" placeholder="Deneme Sınavı İsmi"></span>
+            <div class="buttons">
+                <span class="add calc-ayt">
+                    <h2>Hesapla</h2>
+                </span>
+                <div class="submit-ayt add">
+                    <h2 class="kaydet">Kaydet</h2>
+                </div>
+            </div>
+        </section>
+        <!--            YDT             -->
+        <section class="ydt">
+            <h1 class="title">Yabancı Dil Testi</h1>
+            <span style="justify-content:start;">
+                <h2 class="first-row">Dersler</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Doğru</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Yanlış</h2>
+            </span>
+            <span>
+                <h2 class="first-row">Net</h2>
+            </span>
+            <span style="justify-content:start;">
+                <h2>Dil</h2>
+            </span>
+            <span><input id="number" class="yd dogru _80" type="number" value="0"></span>
+            <span><input id="number" class="yd yanlis _80" type="number" value="0"></span>
+            <span class="net net-yd">0</span>
+            <div class="select-box">
+                <div class="select-box__current" tabindex="-1">
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" value="en" id="ingilizce" name="Ben"
+                            checked="checked" />
+                        <p class="select-box__input-text">İngilizce</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" value="de" id="almanca" name="Ben" />
+                        <p class="select-box__input-text">Almanca</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" value="ar" id="arapca" name="Ben" />
+                        <p class="select-box__input-text">Arapça</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" value="fr" id="fransizca" name="Ben" />
+                        <p class="select-box__input-text">Fransızca</p>
+                    </div>
+                    <div class="select-box__value">
+                        <input class="select-box__input" type="radio" value="ru" id="rusca" name="Ben" />
+                        <p class="select-box__input-text">Rusça</p>
+                    </div>
+                    <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg"
+                        alt="Arrow Icon" aria-hidden="true">
+                </div>
+                <ul class="select-box__list">
+                    <li>
+                        <label class="select-box__option" for="ingilizce" aria-hidden="aria-hidden">İngilizce</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="almanca" aria-hidden="aria-hidden">Almanca</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="arapca" aria-hidden="aria-hidden">Arapça</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="fransizca" aria-hidden="aria-hidden">Fransızca</label>
+                    </li>
+                    <li>
+                        <label class="select-box__option" for="rusca" aria-hidden="aria-hidden">Rusça</label>
+                    </li>
+                </ul>
+            </div>
+            <span class="exam-name"><input maxlength="16" type="text" class="ydt-name" placeholder="Deneme Sınavı İsmi"></span>
+            <div class="buttons">
+                <span class="add calc-ydt">
+                    <h2>Hesapla</h2>
+                </span>
+                <div class="submit-ydt add">
+                    <h2 class="kaydet">Kaydet</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="slider">
+        <h1 class="tyt-button">TYT</h1>
+        <h1 class="ayt-button">AYT</h1>
+        <h1 class="ydt-button">YDT</h1>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/public/js/new-exam.js"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+</body>
+
+</html>

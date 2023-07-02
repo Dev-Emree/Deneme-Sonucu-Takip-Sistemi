@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= examName.toUpperCase(); %> | Deneme Sonucu Takip Sistemi </title>
+    <link rel="stylesheet" href="/public/css/details.css">
+</head>
+
+<body>
+    <% if(auth){ %>
+    <%- include('includes/menu') %>
+    <% }else{ %>
+    <div class="guest-menu">
+        <a href="/kayit-ol">Kayıt Ol</a>
+        <a href="/giris">Giriş Yap</a>
+    </div>
+    <% } %>
+    <main>
+        <section>
+            <div class="username">
+                <h1><%=username%></h1>
+            </div>
+            <div class="p1">
+                <h1><%=examName%></h1>
+                <h1><%= exam.toUpperCase(); %></h1>
+            </div>
+            <% if (exam == 'tyt') { %>
+            <div class="p2">
+                <span class="content-titles"><b>Dersler</b></span>
+                <span class="content-titles"><b>Doğru</b></span>
+                <span class="content-titles"><b>Yanlış</b></span>
+                <span class="content-titles"><b>Net</b></span>
+                <span><b>Türkçe</b></span>
+                <span><%= Turkce.dogru %></span>
+                <span><%= Turkce.yanlis %></span>
+                <span><%= Turkce.net %></span>
+                <span><b>Sosyal Bilimler</b></span>
+                <span><%= Sosyal.dogru %></span>
+                <span><%= Sosyal.yanlis %></span>
+                <span><%= Sosyal.net %></span>
+                <span><b>Matematik</b></span>
+                <span><%= Matematik.dogru %></span>
+                <span><%= Matematik.yanlis %></span>
+                <span><%= Matematik.net %></span>
+                <span><b>Fen Bilimleri</b></span>
+                <span><%= Fen.dogru %></span>
+                <span><%= Fen.yanlis %></span>
+                <span><%= Fen.net %></span>
+            </div>
+            <div class="p3">
+                <span><b>Toplam</b></span>
+                <span><%= Total.dogru %></span>
+                <span><%= Total.yanlis %></span>
+                <span><%= Total.net %></span>
+            </div>
+            <% } else if (exam == 'ayt') { %>
+            <div class="p2">
+                <span class="content-titles"><b>Dersler</b></span>
+                <span class="content-titles"><b>Doğru</b></span>
+                <span class="content-titles"><b>Yanlış</b></span>
+                <span class="content-titles"><b>Net</b></span>
+                <span><b>TDE ve Sosyal-1</b></span>
+                <span><%= Turkce.dogru %></span>
+                <span><%= Turkce.yanlis %></span>
+                <span><%= Turkce.net %></span>
+                <span><b>Sosyal-2</b></span>
+                <span><%= Sosyal.dogru %></span>
+                <span><%= Sosyal.yanlis %></span>
+                <span><%= Sosyal.net %></span>
+                <span><b>Matematik</b></span>
+                <span><%= Matematik.dogru %></span>
+                <span><%= Matematik.yanlis %></span>
+                <span><%= Matematik.net %></span>
+                <span><b>Fen Bilimleri</b></span>
+                <span><%= Fen.dogru %></span>
+                <span><%= Fen.yanlis %></span>
+                <span><%= Fen.net %></span>
+            </div>
+            <div class="p3">
+                <span class="content-titles"><b>Alan</b></span>
+                <span class="content-titles"><b>Doğru</b></span>
+                <span class="content-titles"><b>Yanlış</b></span>
+                <span class="content-titles"><b>Net</b></span>
+                <span><b>MF</b></span>
+                <span><%= MF_Total.dogru %></span>
+                <span><%= MF_Total.yanlis %></span>
+                <span><%= MF_Total.net %></span>
+                <span><b>TM</b></span>
+                <span><%= TM_Total.dogru %></span>
+                <span><%= TM_Total.yanlis %></span>
+                <span><%= TM_Total.net %></span>
+                <span><b>TS</b></span>
+                <span><%= TS_Total.dogru %></span>
+                <span><%= TS_Total.yanlis %></span>
+                <span><%= TS_Total.net %></span>
+            </div>
+            <% } else if (exam == 'ydt') { %>
+            <div class="p3">
+                <span class="content-titles"><b>Dil</b></span>
+                <span class="content-titles"><b>Doğru</b></span>
+                <span class="content-titles"><b>Yanlış</b></span>
+                <span class="content-titles"><b>Net</b></span>
+                <% if (lang=='en') { lang='İngilizce'; } %>
+                <% if (lang=='de') { lang='Almanca'; } %>
+                <% if (lang=='ar') { lang='Arapça'; } %>
+                <% if (lang=='fr') { lang='Fransızca'; } %>
+                <% if (lang=='ru') {lang='Rusça'; } %>
+                <span><b><%= lang %></b></span>
+                <span><%= Total.dogru %></span>
+                <span><%= Total.yanlis %></span>
+                <span><%= Total.net %></span>
+            </div>
+            <% } %>
+        </section>
+    </main>
+</body>
+
+</html>

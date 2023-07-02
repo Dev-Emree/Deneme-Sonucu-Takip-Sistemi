@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+	<meta charset="UTF-16">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon-16x16.png">
+	<link rel="manifest" href="/public/images/site.webmanifest">
+	<title>Kayıt ol | Deneme Sonucu Takip Sistemi</title>
+	<link rel="stylesheet" href="/public/css/register.css">
+</head>
+
+<body>
+	<form action="/login" method="POST">
+		<div class="inputGroup inputGroup1">
+            <label for="email1">Kullanıcı Adı</label>
+            <input maxlength="18" type="text" name="username" id="username" class="username" maxlength="256" autocomplete="off" />
+            <h6 class="error1">Kullanıcı Adı Geçersiz</h6>
+        </div>
+		<div class="inputGroup inputGroup2">
+            <label for="email1">E-posta</label>
+            <input type="email" name="email" id="email" class="email" maxlength="256" autocomplete="off" />
+            <h6 class="error2">Email Geçersiz</h6>
+        </div>
+		<div class="inputGroup inputGroup3">
+            <label for="password">Şifre</label>
+            <input type="password" name="password" id="password" class="password" />
+            <h6 class="error3">Şifre Yanlış</h6>
+        </div>
+		<div class="inputGroup inputGroup4">
+            <label for="password">Şifre Yeniden</label>
+            <input type="password" name="password2" id="password2" class="password2" />
+            <h6 class="error4">Şifreler Uyuşmuyor</h6>
+        </div>
+		<div class="inputGroup inputGroup5">
+            <button id="login">Kayıt Ol</button>
+            <lord-icon style="display:none;" class="loaded" src="https://cdn.lordicon.com/jvihlqtw.json" trigger="loop" colors="primary:#121331,secondary:#08a88a"></lord-icon>
+            <lord-icon style="display:none;" class="loading" src="https://cdn.lordicon.com/dpinvufc.json" trigger="loop" colors="primary:#121331,secondary:#000000"></lord-icon>
+        </div>
+	</form>
+    <a href="/giris" class="login">
+        <h3>Kayıtlı mısınız?<br>Giriş sayfasına gitmek için tıklayın<i style="margin-left:5px;" class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+    </a>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+	<script>
+        const normal = () => {
+            document.querySelector('#login').style = ""
+            document.querySelector('.loading').style = "display:none;"
+            document.querySelector('.loaded').style = "display:none;"
+        }
+        const loading = () => {
+            document.querySelector('#login').style = "display:none;"
+            document.querySelector('.loading').style = ""
+            document.querySelector('.loaded').style = "display:none;"
+        }
+        const loaded = () => {
+            document.querySelector('#login').style = "display:none;"
+            document.querySelector('.loading').style = "display:none;"
+            document.querySelector('.loaded').style = ""
+        }
+		const error = function(className) {
+			var elem = document.querySelector(`.${className}`);
+            elem.className = `${className} errAnimation`;
+            elem.value = "";
+            elem.parentElement.children[2].style.color = 'red'
+		}
+        const error2 = function(className) {
+            var elem = document.querySelector(`.${className}`);
+            elem.className = `${className} errAnimation`;
+            elem.value = "";
+        }
+        const ajaxPost = (usr,pass,email) => { $.ajax({
+					url: '/register',
+					method: 'POST',
+					contentType: "application/json",
+					data: JSON.stringify({
+						usr: usr,
+                        email:email,
+						pass: pass
+					}),
+					success: function(data) {
+						if(data.usr && data.pass && data.email){
+                            loaded();
+                            window.location.href = '/giris';
+                            return;
+                        }if(!data.usr){
+                            error('username');
+                        }if(!data.pass){
+                            error('password');
+                            error2('password2');
+                        }if(!data.email){
+                            error('email');
+                        }
+                        normal();
+					},
+					error: function(data) {
+                        window.location.href = '/500';
+					}
+				});
+            }
+		$(document).ready(function() {
+			$('form').on('submit', function(e) {
+                loading();
+				e.preventDefault();
+				ajaxPost($('.username').val(), $('.password').val(), $('.email').val());
+				return false;
+			});
+			var username = document.querySelector('.username');
+            var email = document.querySelector('.email');
+			var password = document.querySelector('.password');
+            var password2 = document.querySelector('.password2');
+			username.addEventListener('click', function() {
+				if (username.classList.contains('errAnimation')) {
+					username.classList.remove('errAnimation');
+                    document.querySelector('.error1').style="color:transparent;"
+				}
+			});
+			email.addEventListener('click', function() {
+				if (email.classList.contains('errAnimation')) {
+					email.classList.remove('errAnimation');
+                    document.querySelector('.error2').style="color:transparent;"
+				}
+			});
+			password.addEventListener('click', function() {
+				if (password.classList.contains('errAnimation')) {
+					password.classList.remove('errAnimation');
+                    document.querySelector('.error3').style="color:transparent;"
+				}
+			});
+			password2.addEventListener('click', function() {
+				if (password2.classList.contains('errAnimation')) {
+					password2.classList.remove('errAnimation');
+                    document.querySelector('.error4').style="color:transparent;"
+				}
+			});
+            $('form').keypress(function(e){
+                if(e.keyCode === 13){
+                    loading();
+                    e.preventDefault();
+                    var usr = $('.username').val(),
+                        email = $('.email').val(),
+                        password1 = $('.password').val(),
+                        password2 = $('.password2').val(),
+                        proceed = true;
+                    if (usr === "") {
+                        $('.username').css('border-color', 'red');
+                        proceed = false;
+                    }
+                    if (email === "") {
+                        $('.email').css('border-color', 'red');
+                        proceed = false;
+                    }
+                    if(password1 === ""){
+                        $('.password').css('border-color', 'red');
+                        $('.password2').css('border-color', 'red');
+                        proceed = false;
+                    }
+                    if(password1 !== password2){
+                        error2('password');
+                        error('password2');
+                        normal();
+                        proceed = false;
+                    }
+                    if(proceed){
+                        ajaxPost(usr, password1, email);
+                    }
+                }
+            });
+		})
+	</script>
+    <script src="https://kit.fontawesome.com/57e129c3a4.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+
+<style>.menu,.menu>ul,nav{width:100vw}.menu,.menu>ul,.navlinks{display:flex}.menu{z-index:10;align-items:center;justify-content:center;position:fixed;padding-top:3.5vh;color:#fff;top:-250px}.menu>ul{flex-direction:row;align-items:center;justify-content:space-around}.navlinks{cursor:pointer;font-weight:400;letter-spacing:2px;font-size:1.25rem;align-items:center;justify-content:center;flex:1 1 auto;position:relative;transition:1s cubic-bezier(.49, -.46, .03, 1.33);}.navlinks>rotater{padding:5px;border-radius:10px;backdrop-filter:blur(1px);}.mobile,nav,nav .menu-btn{position:fixed}.navlinks:first-child{transition-delay:.05s}.navlinks:nth-child(2){transition-delay:.15s}.navlinks:nth-child(3){transition-delay:.25s}.navlinks:nth-child(4){transition-delay:.35s}.navlinks:nth-child(5){transition-delay:.45s}.navlinks:last-child{transition-delay:.55s}rotater{font-weight:bolder;transition:transform .75s cubic-bezier(.49, -.46, .03, 1.33) .1s}rotater:hover{transform:rotate(5deg)}@media only screen and (min-width:720px){.navlinks{transform:translateY(250px)}}.mobile{z-index:20;left:-50vw;transition:transform 1s cubic-bezier(.49, -.46, .03, 1.33)}@media only screen and (max-width:720px){.mobile{transform:translateX(50vw)}}nav{z-index:20;overflow:hidden;transform:translateX(-85vw);height:100vh;transition:.8s cubic-bezier(.8, 0, .33, 1);border-radius:0 0 100% 50%;padding-top:15vh}nav.nav-open{transform:translateX(0);border-radius:0;background:rgba(255,255,255,.9)}nav .menu-btn{top:5%;right:5%;padding:0;width:30px;cursor:pointer;z-index:2}.menu .menu-btn .line,nav .menu-btn .line{padding:0;width:30px;background:#fff;height:2px;margin:5px 0;transition:.7s cubic-bezier(.9, 0, .33, 1)}nav .menu-btn .line.line--1{width:30px;transform:rotate(0) translateY(0)}nav .menu-btn .line.line--1.line-cross{width:30px;transform:rotate(45deg) translateY(10px);background:rgba(0,0,0,.6)}nav .menu-btn .line.line--2{width:28px;transform:translateX(0)}nav .menu-btn .line.line--2.line-fade-out{width:28px;transform:translate(30px);opacity:0}nav .menu-btn .line.line--3{width:20px;transform:rotate(0) translateY(0)}nav .menu-btn .line.line--3.line-cross{width:30px;transform:rotate(-45deg) translateY(-10px);background:rgba(0,0,0,.6)}.nav-links,nav .nav-links{position:absolute;left:0;top:0;width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:translateX(-100px);opacity:0;transition:.9s cubic-bezier(.9, 0, .33, 1)}.nav-links.fade-in,nav .nav-links.fade-in{opacity:1;transform:translateX(0)}.nav-links .link,nav .nav-links .link{margin:20px 0;text-decoration:none;font-family:sans-serif;color:rgba(0,0,0,.9);font-weight:700;text-transform:uppercase;font-size:1.2rem;transition:.3s cubic-bezier(.9, 0, .33, 1)}.nav-links .link:hover,nav .nav-links .link:hover{color:rgba(0,0,0,.5)}a{text-decoration:none;color:white;}</style>
+<div class="menu">
+    <% if(page != 'yeni-kayit'){ %>
+        <a href="/panel/yeni-kayit" class="navlinks"><rotater>Yeni Sınav Kaydet</rotater></a>
+    <% } if(page != 'tytler'){ %>
+        <a href="/panel/tytler" class="navlinks"><rotater>TYT'ler</rotater></a>
+    <% } if(page != 'aytler'){ %>
+        <a href="/panel/aytler" class="navlinks"><rotater>AYT'ler</rotater></a>
+    <% } if(page != 'ydtler'){ %>
+        <a href="/panel/ydtler" class="navlinks"><rotater>YDT'ler</rotater></a>
+    <% } if(page != 'login'){ %>
+        <a href="/logout" class="navlinks"><rotater>Çıkış Yap</rotater></a>
+    <% } %>
+</div>
+<div class="mobile">
+    <nav>
+        <div class="menu-btn">
+            <div class="line line--1"></div>
+            <div class="line line--2"></div>
+            <div class="line line--3"></div>
+        </div>
+        <div class="nav-links">
+        <% if(page != 'panel'){ %>
+            <a href="/" class="link">Panel</a>
+        <% } if(page != 'yeni-kayit'){ %>
+            <a href="/panel/yeni-kayit" class="link">Yeni Sınav Kaydet</a>
+        <% } if(page != 'tytler'){ %>
+            <a href="/panel/tytler" class="link">TYT'ler</a>
+        <% } if(page != 'aytler'){ %>
+            <a href="/panel/aytler" class="link">AYT'ler</a>
+        <% } if(page != 'ydtler'){ %>
+            <a href="/panel/ydtler" class="link">YDT'ler</a>
+        <% } %>
+            <a href="/logout" class="link">Çıkış Yap</a>
+        </div>
+    </nav>
+</div>
+<script>
+    var menuBtn = document.querySelector('.menu-btn');
+    var nav = document.querySelector('nav');
+    var lineOne = document.querySelector('nav .menu-btn .line--1');
+    var lineTwo = document.querySelector('nav .menu-btn .line--2');
+    var lineThree = document.querySelector('nav .menu-btn .line--3');
+    var link = document.querySelector('nav .nav-links');
+    menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+        lineOne.classList.toggle('line-cross');
+        lineTwo.classList.toggle('line-fade-out');
+        lineThree.classList.toggle('line-cross');
+        link.classList.toggle('fade-in');
+    });
+
+</script>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=examName%> | Deneme Sonucu Takip Sistemi</title>
+    <link rel="stylesheet" href="/public/css/exams.css">
+</head>
+
+<body>
+    <%- include('../includes/menu') %>
+    <main>
+        <ul class="exams">
+            <% if(exams.length == 0){ %>
+                <h1 class="not-found">
+                    Henüz Sınav Kaydedilmedi
+                </h1>
+            <% }else{ %>
+            <% exams.forEach((item,index)=>{ %>
+            <li class="exam">
+                <div class="exam-p1">
+                    <h2 class="exam-name"><%= item.examName %></h2>
+                    <img class="arrow" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" aria-hidden="true">
+                </div>
+                <% if(_link == 'ty'){ %>
+                <div class="exam-p2">
+                    <div class="lessons">
+                        <span style="font-size:var(--info-title);"><b>Dersler</b></span>
+                        <span style="font-size:var(--info-title);"><b>Doğru</b></span>
+                        <span style="font-size:var(--info-title);"><b>Yanlış</b></span>
+                        <span style="font-size:var(--info-title);"><b>Net</b></span>
+                        <span><b>Türkçe</b></span>
+                        <span><%= item.Turkce.dogru %></span>
+                        <span><%= item.Turkce.yanlis %></span>
+                        <span><%= item.Turkce.net %></span>
+                        <span><b>Sosyal Bilimler</b></span>
+                        <span><%= item.Sosyal.dogru %></span>
+                        <span><%= item.Sosyal.yanlis %></span>
+                        <span><%= item.Sosyal.net %></span>
+                        <span><b>Matematik</b></span>
+                        <span><%= item.Matematik.dogru %></span>
+                        <span><%= item.Matematik.yanlis %></span>
+                        <span><%= item.Matematik.net %></span>
+                        <span><b>Fen Bilimleri</b></span>
+                        <span><%= item.Fen.dogru %></span>
+                        <span><%= item.Fen.yanlis %></span>
+                        <span><%= item.Fen.net %></span>
+                        <span style="margin-top:20px;font-size:var(--info-title);"><b>Toplam</b></span>
+                        <span style="margin-top:20px;"><%= item.Total.dogru %></span>
+                        <span style="margin-top:20px;"><%= item.Total.yanlis %></span>
+                        <span style="margin-top:20px;"><%= item.Total.net %></span>
+                    </div>
+                    <div class="change-visibility">
+                        <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
+                        <% if(item.public){ %>
+                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
+                                class="fa-solid fa-arrow-up-right-from-square"></i></h4>
+                        <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
+                        <% }else{ %>
+                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            class="url">URL yok</h4>
+                        <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
+                        <% } %>
+                    </div>
+                </div>
+                <% }else if(_link == 'ay'){ %>
+                <div class="exam-p2">
+                    <div class="lessons">
+                        <span style="font-size:var(--info-title);"><b>Dersler</b></span>
+                        <span style="font-size:var(--info-title);"><b>Doğru</b></span>
+                        <span style="font-size:var(--info-title);"><b>Yanlış</b></span>
+                        <span style="font-size:var(--info-title);"><b>Net</b></span>
+                        <span><b>TDE ve Sosyal-1</b></span>
+                        <span><%= item.Turkce.dogru %></span>
+                        <span><%= item.Turkce.yanlis %></span>
+                        <span><%= item.Turkce.net %></span>
+                        <span><b>Sosyal-2</b></span>
+                        <span><%= item.Sosyal.dogru %></span>
+                        <span><%= item.Sosyal.yanlis %></span>
+                        <span><%= item.Sosyal.net %></span>
+                        <span><b>Matematik</b></span>
+                        <span><%= item.Matematik.dogru %></span>
+                        <span><%= item.Matematik.yanlis %></span>
+                        <span><%= item.Matematik.net %></span>
+                        <span><b>Fen Bilimleri</b></span>
+                        <span><%= item.Fen.dogru %></span>
+                        <span><%= item.Fen.yanlis %></span>
+                        <span><%= item.Fen.net %></span>
+                    </div>
+                    <div class="total-net">
+                        <span style="font-size:var(--info-title);"><b>Alan</b></span>
+                        <span style="font-size:var(--info-title);"><b>Doğru</b></span>
+                        <span style="font-size:var(--info-title);"><b>Yanlış</b></span>
+                        <span style="font-size:var(--info-title);"><b>Net</b></span>
+                        <span style="font-size:var(--info-title);"><b>MF</b></span>
+                        <span><%= item.MF_Total.dogru %></span>
+                        <span><%= item.MF_Total.yanlis %></span>
+                        <span><%= item.MF_Total.net %></span>
+                        <span style="font-size:var(--info-title);"><b>TM</b></span>
+                        <span><%= item.TM_Total.dogru %></span>
+                        <span><%= item.TM_Total.yanlis %></span>
+                        <span><%= item.TM_Total.net %></span>
+                        <span style="font-size:var(--info-title);"><b>TS</b></span>
+                        <span><%= item.TS_Total.dogru %></span>
+                        <span><%= item.TS_Total.yanlis %></span>
+                        <span><%= item.TS_Total.net %></span>
+                    </div>
+                    <div class="change-visibility">
+                        <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
+                        <% if(item.public){ %>
+                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
+                                class="fa-solid fa-arrow-up-right-from-square"></i></h4>
+                        <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
+                        <% }else{ %>
+                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            class="url">URL yok</h4>
+                        <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
+                        <% } %>
+                    </div>
+                    <% }else{ %>
+                    <div class="exam-p2">
+                        <div class="lessons">
+                            <span style="font-size:var(--info-title);"><b>Dil</b></span>
+                            <span style="font-size:var(--info-title);"><b>Doğru</b></span>
+                            <span style="font-size:var(--info-title);"><b>Yanlış</b></span>
+                            <span style="font-size:var(--info-title);"><b>Net</b></span>
+                            <span style="font-size:var(--info-title);"><b>İngilizce</b></span>
+                            <span><%= item.Total.dogru %> </span>
+                            <span><%= item.Total.yanlis %> </span>
+                            <span><%= item.Total.net %> </span>
+                        </div>
+                        <div class="change-visibility">
+                            <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
+                            <% if(item.public){ %>
+                            <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                                onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                                class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></h4>
+                            <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
+                            <% }else{ %>
+                            <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                                class="url">URL yok</h4>
+                            <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
+                            <% } %>
+                        </div>
+                    </div>
+                    <% } %>
+            </li>
+            <% }); %>
+            <% } %>
+        </ul>
+        <div class="pages">
+            <% if(chunk!=1){ %>
+                <a href="<%=parseInt(chunk)-1%>" class="previous">
+                    <img class="page-arrow" src="http://cdn.onlinewebfonts.com/svg/img_270824.svg" aria-hidden="true"
+                        style="transform:rotate(180deg);">
+                </a>
+            <% }else{ %>
+                <div class="clear">
+                </div>
+            <% } %>
+            <% if (next) { %>
+                <a href="<%=parseInt(chunk)+1%>" class="next">
+                    <img class="page-arrow" src="http://cdn.onlinewebfonts.com/svg/img_270824.svg" aria-hidden="true">
+                </a>
+            <% } %>
+        </div>
+        <div class="info">
+            <div class="info-content">
+                <h5>Sınavlara tıklayarak detaylı bilgi görebilirsiniz.</h5>
+            </div>
+            <div class="info-btn">
+                <h1>?</h1>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector('.info-btn').addEventListener("click", () => {
+                var content = document.querySelector('.info-content>h5');
+                if (content.classList.contains('info-inner')) {
+                    content.classList.remove('info-inner')
+                } else {
+                    content.classList.toggle('info-inner');
+                }
+            });
+        });
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $("li .exam-p1").click(function () {
+            $(this).find(".arrow").toggleClass("arrow-active"),
+                $(this).parent().toggleClass("active");
+        });
+
+    </script>
+    <%var ids = ""%>
+    <% exams.forEach((item,index) => {%>
+    <%ids += item._id +',';%>
+    <%}); %>
+    <script>
+        var ids = '<%-ids.slice(0,-1)%>'.split(','),
+            buttons = document.querySelectorAll('.change');
+        buttons.forEach((item, index) => {
+            item.addEventListener('click', event => {
+                var id = item.id,
+                    id_last = id.slice(-1);
+                id_last < 10 && id_last > -1 ? 0 : location.reload();
+                $.ajax({
+                    url: '/set/exam-public',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        examId: ids[id_last],
+                        examName: `<%=_link%>`
+                    }),
+                    success: function (data) {
+                        if (data.public) {
+                            item.parentElement.children[0].innerHTML =
+                                "Tıklayrak URL'i kopyala<i style='margin-left:5px;' class='fa-solid fa-arrow-up-right-from-square'></i>";
+                            item.firstChild.innerHTML = 'Gizli Yap';
+                        } else {
+                            item.parentElement.children[0].innerHTML = 'URL yok';
+                            item.firstChild.innerHTML = 'Görünür Yap';
+                        }
+                    },
+                    error: function (data) {
+                        alert('Sunucu Hatası Lütfen Daha Sonra Tekrar Deneyiniz');
+                        location.reload();
+                    }
+                });
+            });
+        });
+
+    </script>
+    <script src="https://kit.fontawesome.com/57e129c3a4.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"
+        integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"
+        integrity="sha512-CPA5LMoJI/a5HkSIAKcBtFXe4gqGjPUL2ExF/3PmhrrHI17wod9xOqqF+0WZQRKIIq0KwF8oG5BaiWobtrke3A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/public/js/exams.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <link rel="stylesheet" href="/public/css/panel.css">
+</head>
+
+<body>
+    <%- include('../includes/menu') %>
+    <main>
+        <div class="processing">
+            <h1>Arayüz tasarımı yapılıyor...</h1>
+            <% var rand = Math.floor(Math.random() * 13); %>
+            <img src="/public/images/developing<%=rand%>.gif" alt="Kodlanıyor...">
+        </div>
+    </main>
+</body>
+
+</html>
