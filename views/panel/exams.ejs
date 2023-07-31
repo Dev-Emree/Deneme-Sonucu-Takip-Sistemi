@@ -52,20 +52,6 @@
                         <span style="margin-top:20px;"><%= item.Total.yanlis %></span>
                         <span style="margin-top:20px;"><%= item.Total.net %></span>
                     </div>
-                    <div class="change-visibility">
-                        <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
-                        <% if(item.public){ %>
-                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                            class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
-                                class="fa-solid fa-arrow-up-right-from-square"></i></h4>
-                        <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
-                        <% }else{ %>
-                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                            class="url">URL yok</h4>
-                        <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
-                        <% } %>
-                    </div>
-                </div>
                 <% }else if(_link == 'ay'){ %>
                 <div class="exam-p2">
                     <div class="lessons">
@@ -108,20 +94,6 @@
                         <span><%= item.TS_Total.yanlis %></span>
                         <span><%= item.TS_Total.net %></span>
                     </div>
-                    <div class="change-visibility">
-                        <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
-                        <% if(item.public){ %>
-                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                            onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                            class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
-                                class="fa-solid fa-arrow-up-right-from-square"></i></h4>
-                        <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
-                        <% }else{ %>
-                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                            class="url">URL yok</h4>
-                        <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
-                        <% } %>
-                    </div>
                     <% }else{ %>
                     <div class="exam-p2">
                         <div class="lessons">
@@ -134,22 +106,21 @@
                             <span><%= item.Total.yanlis %> </span>
                             <span><%= item.Total.net %> </span>
                         </div>
-                        <div class="change-visibility">
-                            <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
-                            <% if(item.public){ %>
-                            <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                                onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                                class="url">Tıklayarak URL'i kopyala<i style="margin-left:5px;"
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></h4>
-                            <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
-                            <% }else{ %>
-                            <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
-                                class="url">URL yok</h4>
-                            <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
-                            <% } %>
-                        </div>
-                    </div>
                     <% } %>
+                    <div class="change-visibility">
+                        <% var link = `http://${_domain}/detay/${_link}t/${item._id}` %>
+                        <h4 onclick="navigator.clipboard.writeText('<%=link%>');window.open('<%=link%>','_blank')"
+                            class="url">
+                        <% if(item.public){ %>
+                        Tıklayarak URL'i kopyala<i style="margin-left:5px;"
+                                class="fa-solid fa-arrow-up-right-from-square"></i></h4>
+                        <span id="button<%=index%>" class="change"><b>Gizli Yap</b></span>
+                        <% }else{ %>
+                        URL yok</h4>
+                        <span id="button<%=index%>" class="change"><b>Görünür Yap</b></span>
+                        <% } %>
+                    </div>
+                </div>
             </li>
             <% }); %>
             <% } %>
